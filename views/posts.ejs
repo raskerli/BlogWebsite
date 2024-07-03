@@ -1,0 +1,47 @@
+<%- include("partials/header.ejs") %>
+    <% if (posts.length==0) { %>
+        <h1>You don't have any posts</h1>
+        <% }else{ %>
+            <div class="container">
+                <div class="row">
+                    <% for (let i=0; i < posts.length; i++) { %>
+                        <div class="col-md-6">
+                            <div
+                                class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <strong class="d-inline-block mb-2 text-success-emphasis">
+                                        <%= posts[i].userName %>
+                                            <%= posts[i].userLastName %>
+                                    </strong>
+                                    <h3 class="mb-0">
+                                        <%= posts[i].contentTitle %>
+                                    </h3>
+                                    <div class="mb-1 text-body-secondary">
+                                        <%= posts[i].postCategory %>
+                                    </div>
+                                    <p class="mb-auto">
+                                        <%= posts[i].contentText.substring(0,100) %>
+                                    </p>
+                                    <form action="/continue-reading" method="post">
+                                        <input type="hidden" name="index" value="<%= i %>">
+                                        <a onclick="this.parentNode.submit();"
+                                            class="icon-link gap-1 icon-link-hover stretched-link">
+                                            Continue reading
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                                            </svg>
+                                        </a>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+            </div>
+
+
+            <% } %>
+                <%- include("partials/footer.ejs") %>

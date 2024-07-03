@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+    <div id="home">
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/images/logo.png" alt="Website Logo" width="72" height="57">
+            <h1 class="display-5 fw-bold ">Welcome To Our Blog Website</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Welcome to my blog website! This project is built using Node.js, Express.js, and
+                    EJS,
+                    providing a seamless and interactive platform for creating, editing, and deleting blog posts.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <form action="/create-post"><input type="submit" class="btn btn-primary btn-lg px-4 gap-3"
+                            id="primary-button" value="Create a Post"></form>
+                    <form action="/your-posts"><input type="submit" class="btn btn-outline-secondary btn-lg px-4"
+                            id="secondary-button" value="Your Posts"></form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("partials/footer.ejs") %>

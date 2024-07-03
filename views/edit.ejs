@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") %>
+    <form class="row g-3" action="/update-post" method="post">
+        <input type="hidden" name="index" value="<%= index %>">
+        <div class="col-md-6">
+            <label for="first-name" class="form-label">First name</label>
+            <input type="text" class="form-control" name="fName" id="first-name" maxlength="20"
+                value="<%= post.userName %>" required>
+        </div>
+        <div class="col-md-6">
+            <label for="last-name" class="form-label">Last name</label>
+            <input type="text" class="form-control" name="lName" id="last-name" maxlength="20"
+                value="<%= post.userLastName %>" required>
+        </div>
+        <div class="col-12">
+            <label for="content-title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="content-title" name="contentTitle" maxlength="30"
+                value="<%= post.contentTitle %>" required>
+        </div>
+        <div class="col-12">
+            <label for="content-text" class="form-label">Content</label>
+            <textarea type="text" class="form-control" id="content-text" name="contentText" maxlength="1000"
+                required><%= post.contentText %></textarea>
+        </div>
+        <div class="col-md-6">
+            <label for="inputCategory" class="form-label">Category</label>
+            <select id="inputCategory" class="form-select" name="category" required>
+                <option value="news" <%=post.postCategory==='news' ? 'selected' : '' %>>News</option>
+                <option value="tech" <%=post.postCategory==='tech' ? 'selected' : '' %>>Tech</option>
+                <option value="lifestyle" <%=post.postCategory==='lifestyle' ? 'selected' : '' %>>Lifestyle</option>
+                <option value="entertainment" <%=post.postCategory==='entertainment' ? 'selected' : '' %>>Entertainment
+                </option>
+            </select>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary create-submit-button" id="primary-button">
+                post</button>
+        </div>
+    </form>
+    <%- include("partials/footer.ejs") %>

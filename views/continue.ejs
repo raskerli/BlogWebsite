@@ -1,0 +1,20 @@
+<%- include("partials/header.ejs") %>
+    <div class="px-4 pt-5 my-5 text-center">
+        <h1 class="display-4 fw-bold ">
+            <%= post.contentTitle %>
+        </h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">
+                <%= post.contentText %>
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                <form action="/edit-post" method="post"> <input type="hidden" name="index" value="<%= index %>"><button
+                        type="submit" class="btn btn-primary btn-lg px-4 me-sm-3" id="primary-button">Edit
+                    </button></form>
+                <form action="/delete-post" method="post"> <input type="hidden" name="index"
+                        value="<%= index %>"><button type="submit" class="btn btn-outline-secondary btn-lg px-4"
+                        id="secondary-button">Delete</button></form>
+            </div>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs") %>
